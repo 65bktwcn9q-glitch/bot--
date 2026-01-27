@@ -9,13 +9,30 @@
 ```json
 {
   "framework": "vite",
+  "installCommand": "npm install",
   "buildCommand": "npm --workspace apps/web run build",
   "outputDirectory": "apps/web/dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-Это заставляет Vercel отдавать `index.html` на всех путях.
+Это заставляет Vercel:
+- отдавать `index.html` на всех путях,
+- кэшировать статические файлы (ускорение),
+- включать чистые URL без `.html`.
 
 ## Как деплоить
 1. Залей репозиторий на GitHub.

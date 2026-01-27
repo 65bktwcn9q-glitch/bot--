@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionPlan {
+  FREE
+  PREMIUM
+  LIFETIME
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum PaymentProvider {
+  TELEGRAM_STARS
+  TON
+  USDT_TON
+  PORTMONE
+  CAPITALIST
+}
+
+enum AdType {
+  BANNER
+  FULLSCREEN
+}
+
+enum AdminRole {
+  ADMIN
+  MODERATOR
+}
+
+enum TaskType {
+  MULTIPLE_CHOICE
+  FILL_BLANK
+  SHORT_TRANSLATION
+  MINI_DIALOG
+}
+
+model User {
+  id              String        @id @default(uuid())
+  telegramId      String        @unique
+  name            String?
+  language        String        @default("ru")
+  level           String        @default("A1")
+  goal            String        @default("grammar")
+  streak          Int           @default(0)
+  points          Int           @default(0)
+  dailyTaskCount  Int           @default(0)
+  dailyTaskDate   DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  subscription    Subscription?
+  payments        Payment[]
+  taskLogs        TaskLog[]
+  aiRequests      AiRequest[]
+}
+
+model Subscription {
+  id         String             @id @default(uuid())
+  userId     String             @unique
+  plan       SubscriptionPlan   @default(FREE)
+  status     SubscriptionStatus @default(ACTIVE)
+  startedAt  DateTime           @default(now())
+  expiresAt  DateTime?
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @updatedAt
+  user       User               @relation(fields: [userId], references: [id])
+}
+
+model Payment {
+  id         String          @id @default(uuid())
+  userId     String
+  provider   PaymentProvider
+  amount     Float
+  currency   String
+  status     PaymentStatus   @default(PENDING)
+  externalId String?         @unique
+  metadata   Json?
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  user       User            @relation(fields: [userId], references: [id])
+}
+
+model Ad {
+  id        String   @id @default(uuid())
+  type      AdType
+  title     String
+  text      String
+  imageUrl  String?
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Admin {
+  id         String    @id @default(uuid())
+  telegramId String    @unique
+  role       AdminRole @default(ADMIN)
+  createdAt  DateTime  @default(now())
+}
+
+model TaskLog {
+  id        String    @id @default(uuid())
+  userId    String
+  taskType  TaskType
+  success   Boolean
+  tags      String
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id])
+}
+
+model AiRequest {
+  id          String   @id @default(uuid())
+  userId      String
+  taskType    TaskType
+  prompt      String
+  response    String
+  status      String
+  cost        Float    @default(0)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model AppConfig {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,33 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "GTA SA Launcher",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "fs": { "all": true, "scope": ["$APPDATA/**", "$HOME/**"] },
+      "path": { "all": true },
+      "dialog": { "open": true },
+      "shell": { "open": true }
+    },
+    "windows": [
+      {
+        "title": "GTA SA Launcher",
+        "width": 1280,
+        "height": 720,
+        "minWidth": 1100,
+        "minHeight": 640,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": false
+      }
+    ]
+  }
+}

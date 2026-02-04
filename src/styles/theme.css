@@ -1,0 +1,24 @@
+:root {
+  --color-bg: 10 12 16;
+  --color-bg-elevated: 18 21 28;
+  --color-panel: 24 28 36;
+  --color-text-primary: 234 239 246;
+  --color-text-muted: 143 154 173;
+  --color-accent: 94 234 212;
+  --color-accent-soft: 77 140 220;
+  --color-success: 77 214 124;
+  --color-warning: 250 204 21;
+  --color-danger: 248 113 113;
+  --radius-xl: 18px;
+  --radius-2xl: 26px;
+  --font-display: "Space Grotesk";
+  --font-body: "Inter";
+}
+
+body {
+  font-family: var(--font-body);
+  background: radial-gradient(circle at top left, rgba(94, 234, 212, 0.08), transparent 45%),
+    radial-gradient(circle at top right, rgba(77, 140, 220, 0.12), transparent 50%),
+    rgb(var(--color-bg));
+  min-height: 100vh;
+}

@@ -1,0 +1,15 @@
+{
+  "app": {
+    "kicker": "San Andreas Multiplayer",
+    "title": "GTA SA Launcher",
+    "build": "Build"
+  },
+  "nav": {
+    "servers": "Servers",
+    "settings": "Settings"
+  },
+  "sidebar": {
+    "tipTitle": "Tip",
+    "tipBody": "Add new servers by editing public/servers.json."
+  }
+}

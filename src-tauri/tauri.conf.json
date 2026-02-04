@@ -28,6 +28,14 @@
         "fullscreen": false,
         "transparent": false
       }
-    ]
+    ],
+    "bundle": {
+      "active": true,
+      "targets": ["nsis", "msi"],
+      "identifier": "com.samp.launcher",
+      "copyright": "Copyright (c) 2024 GTA SA Launcher",
+      "shortDescription": "GTA SA Multiplayer launcher",
+      "longDescription": "Premium Windows launcher for GTA San Andreas multiplayer servers."
+    }
   }
 }

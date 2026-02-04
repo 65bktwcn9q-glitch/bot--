@@ -63,6 +63,13 @@ npm run tauri dev
 npm run tauri build
 ```
 
+## Setup.exe (Windows installer)
+Tauri will generate Windows installers with NSIS/MSI. After `npm run tauri build`, find artifacts here:
+```
+src-tauri/target/release/bundle/nsis/*.exe
+src-tauri/target/release/bundle/msi/*.msi
+```
+
 ## Где менять `servers.json`
 Добавляйте новые сервера в `public/servers.json` — UI автоматически подхватит список без правок кода.
 

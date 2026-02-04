@@ -70,6 +70,22 @@ src-tauri/target/release/bundle/nsis/*.exe
 src-tauri/target/release/bundle/msi/*.msi
 ```
 
+## Сборка всё + EXE для запуска и Setup
+```bash
+npm install
+npm run build:win
+```
+
+После сборки:
+```
+EXE (launcher):
+src-tauri/target/release/samp-launcher.exe
+
+Setup (installer):
+src-tauri/target/release/bundle/nsis/*.exe
+src-tauri/target/release/bundle/msi/*.msi
+```
+
 ## Где менять `servers.json`
 Добавляйте новые сервера в `public/servers.json` — UI автоматически подхватит список без правок кода.
 

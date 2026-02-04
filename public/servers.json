@@ -1,0 +1,33 @@
+[
+  {
+    "id": "aurora-rp",
+    "name": "Aurora Roleplay",
+    "description": "Premium HardRP experience with cinematic storylines, custom jobs, and economy balancing.",
+    "ip": "127.0.0.1",
+    "port": 7777,
+    "brandColor": "#5EEAD4",
+    "backgroundImage": "/server-bg.svg",
+    "updatesBaseUrl": "https://example.com/aurora",
+    "discordUrl": "https://discord.gg/example",
+    "siteUrl": "https://example.com",
+    "tags": ["HardRP", "x2", "New"],
+    "rules": [
+      "Respect RP boundaries and other players.",
+      "No cheats, scripts, or unfair advantages.",
+      "Follow staff instructions during events."
+    ]
+  },
+  {
+    "id": "neon-city",
+    "name": "Neon City",
+    "description": "Fast-paced urban RP with neon visuals, custom vehicles, and nightly events.",
+    "ip": "127.0.0.1",
+    "port": 7778,
+    "brandColor": "#4D8CDC",
+    "backgroundImage": "/server-bg.svg",
+    "updatesBaseUrl": "https://example.com/neon",
+    "discordUrl": "https://discord.gg/example",
+    "siteUrl": "https://example.com",
+    "tags": ["MediumRP", "Events"]
+  }
+]

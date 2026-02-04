@@ -1,0 +1,15 @@
+[
+  {
+    "id": "update-01",
+    "title": "New economy season",
+    "date": "2024-07-12",
+    "summary": "Balance pass for jobs, new business tiers, and fresh starter packs.",
+    "url": "https://example.com/news/1"
+  },
+  {
+    "id": "update-02",
+    "title": "Garage expansion",
+    "date": "2024-07-20",
+    "summary": "Added 12 premium vehicles and a new tuning location."
+  }
+]

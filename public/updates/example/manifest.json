@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "critical": false,
+  "files": [
+    {
+      "path": "models/aurora_pack.img",
+      "size": 1843200,
+      "sha256": "b7c2278d4d45c1a9192fddceea644187b0f5c9f48a02a8587c642cbf6f1c0e9b"
+    },
+    {
+      "path": "cleo/aurora_helper.cs",
+      "size": 43200,
+      "sha256": "a1e4b8fe1cf0f7d7f1b22cf0b9f77841d6dca8e6c45cf13327df5f927f2d8e1e"
+    }
+  ]
+}
